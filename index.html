@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f7f5;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #3a3a3a;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .names {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        
+        .wedding-date {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 15px 20px;
+            margin: 0 10px;
+            min-width: 80px;
+            border-radius: 5px;
+            color: #333;
+        }
+        
+        .countdown-amount {
+            font-size: 2.2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .countdown-period {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #d7b679;
+            margin: 15px auto;
+        }
+        
+        /* Links Section */
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .link-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 220px;
+            height: 220px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: #d7b679;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .link-button i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #d7b679;
+        }
+        
+        .link-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .link-desc {
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 0 15px;
+            color: #777;
+        }
+        
+        /* Schedule Section */
+        .schedule-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .schedule-item {
+            display: flex;
+            margin-bottom: 30px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .schedule-time {
+            background: #d7b679;
+            color: #fff;
+            padding: 20px;
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .schedule-details {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .schedule-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        /* Our Story Section */
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .story-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #d7b679;
+            border-radius: 4px;
+        }
+        
+        .story-item {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .story-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .story-date {
+            position: absolute;
+            left: -80px;
+            background: #d7b679;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .story-content {
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            position: relative;
+        }
+        
+        .story-content::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            border: 10px solid transparent;
+            border-right-color: #fff;
+        }
+        
+        .story-content h3 {
+            color: #d7b679;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .story-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .story-image {
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .story-timeline {
+                padding-left: 30px;
+            }
+            
+            .story-date {
+                position: relative;
+                left: -40px;
+                display: inline-block;
+                margin-bottom: 15px;
+            }
+        }
+        
+        /* Dress Code Section */
+        .dress-code {
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .dress-code-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #d7b679;
+        }
+        
+        .dress-code-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer-text {
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .names {
+                font-size: 3rem;
+            }
+            
+            .wedding-date {
+                font-size: 1.5rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-box {
+                margin: 5px;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+            }
+            
+            .schedule-time {
+                padding: 10px;
+                min-width: auto;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Names and Date -->
+    <header>
+        <div class="container">
+            <h1 class="names">Sarah & John</h1>
+            <p class="wedding-date">August 15, 2025</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown">
+                <div class="countdown-box">
+                    <span class="countdown-amount" id="days">00</span>
+                    <span class="countdown-period">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-amount" id="hours">00</span>
+                    <span class="countdown-period">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-amount" id="minutes">00</span>
+                    <span class="countdown-period">Minutes</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-amount" id="seconds">00</span>
+                    <span class="countdown-period">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Our Story Section -->
+    <section id="our-story">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            
+            <div class="story-container">
+                <div class="story-timeline">
+                    <div class="story-item">
+                        <div class="story-date">September 2019</div>
+                        <div class="story-content">
+                            <h3>How We Met</h3>
+                            <p>We met on a rainy Tuesday at a local coffee shop. Sarah was working on her laptop when John accidentally spilled his coffee nearby. What started as an awkward apology turned into a two-hour conversation about everything from travel dreams to favorite books.</p>
+                            <div class="story-image">
+                                <img src="/api/placeholder/400/300" alt="Coffee shop where we met">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-item">
+                        <div class="story-date">February 2020</div>
+                        <div class="story-content">
+                            <h3>First Date</h3>
+                            <p>Our first official date was at the botanical gardens. We walked for hours among exotic plants, getting to know each other and discovering our shared love for nature and photography.</p>
+                            <div class="story-image">
+                                <img src="/api/placeholder/400/300" alt="Botanical gardens">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-item">
+                        <div class="story-date">July 2023</div>
+                        <div class="story-content">
+                            <h3>The Proposal</h3>
+                            <p>After hiking to the summit of Mount Rainier at sunrise, John got down on one knee with a ring and a promise. The view was breathtaking, but Sarah says she barely noticed it through happy tears.</p>
+                            <div class="story-image">
+                                <img src="/api/placeholder/400/300" alt="Mountain proposal">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-item">
+                        <div class="story-date">August 2025</div>
+                        <div class="story-content">
+                            <h3>Our Wedding Day</h3>
+                            <p>And now, we can't wait to begin the next chapter of our story with all of you by our side.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Links Section -->
+    <section id="links">
+        <div class="container">
+            <h2 class="section-title">Quick Links</h2>
+            
+            <div class="links-container">
+                <!-- Location Link -->
+                <a href="#" class="link-button" id="location-link">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="link-title">Location</div>
+                    <div class="link-desc">Find your way to our special day</div>
+                </a>
+                
+                <!-- Spotify Playlist -->
+                <a href="#" class="link-button" id="spotify-link">
+                    <i class="fab fa-spotify"></i>
+                    <div class="link-title">Our Playlist</div>
+                    <div class="link-desc">Listen to our favorite songs</div>
+                </a>
+                
+                <!-- Gifts Link -->
+                <a href="#" class="link-button" id="gifts-link">
+                    <i class="fas fa-gift"></i>
+                    <div class="link-title">Gifts</div>
+                    <div class="link-desc">Your presence is enough, but if you insist...</div>
+                </a>
+                
+                <!-- Photo Album -->
+                <a href="#" class="link-button" id="photos-link">
+                    <i class="fas fa-camera"></i>
+                    <div class="link-title">Photo Album</div>
+                    <div class="link-desc">Share your moments with us</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Schedule Section -->
+    <section id="schedule">
+        <div class="container">
+            <h2 class="section-title">Wedding Schedule</h2>
+            
+            <div class="schedule-container">
+                <div class="schedule-item">
+                    <div class="schedule-time">14:00</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">Arrival & Welcome</div>
+                        <div class="schedule-desc">Guests arrive and are welcomed with refreshments</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">15:00</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">Ceremony</div>
+                        <div class="schedule-desc">The wedding ceremony begins</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">16:00</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">Cocktail Hour</div>
+                        <div class="schedule-desc">Enjoy drinks and canapes while we take photos</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">17:30</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">Dinner</div>
+                        <div class="schedule-desc">Formal dinner service begins</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">19:30</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">First Dance</div>
+                        <div class="schedule-desc">The newlyweds take to the floor</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">20:00</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">Party Time!</div>
+                        <div class="schedule-desc">Dancing and celebration into the night</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Dress Code Section -->
+    <section id="dress-code">
+        <div class="container">
+            <h2 class="section-title">Dress Code</h2>
+            
+            <div class="dress-code">
+                <h3 class="dress-code-title">Semi-Formal Elegance</h3>
+                <p class="dress-code-desc">
+                    We invite you to dress in semi-formal attire for our special day. 
+                    For men, this means a suit or blazer with dress pants. For women, 
+                    a cocktail dress or elegant jumpsuit would be perfect. 
+                    We recommend avoiding white (reserved for the bride) and very casual attire.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">We can't wait to celebrate with you!</p>
+            <p>Sarah & John</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Countdown Timer and Link Functionality -->
+    <script>
+        // Replace these with your actual links
+        document.getElementById('location-link').href = "https://maps.google.com/..."; // Google Maps link
+        document.getElementById('spotify-link').href = "https://open.spotify.com/..."; // Spotify playlist
+        document.getElementById('gifts-link').href = "https://paybox.com/..."; // Gifts/payment link
+        document.getElementById('photos-link').href = "https://photos.google.com/..."; // Google Photos
+
+        // Countdown Timer
+        const weddingDate = new Date("August 15, 2025 15:00:00").getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display results
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            
+            // If countdown is over
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }
+        
+        // Update countdown every second
+        updateCountdown(); // Initial call
+        const countdownTimer = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
