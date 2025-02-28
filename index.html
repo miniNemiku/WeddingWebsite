@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Wedding</title>
+    <title>Noam & Matan - Wedding</title>
     <style>
-        /* Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        /* Google Fonts - Adding Hebrew fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
         
         /* Base Styles */
         * {
@@ -16,14 +16,15 @@
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Heebo', 'Montserrat', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f9f7f5;
+            text-align: right;
         }
         
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Heebo', 'Playfair Display', serif;
             color: #3a3a3a;
         }
         
@@ -33,7 +34,7 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Header Styles - Left to Right for English */
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600') center/cover no-repeat;
             height: 100vh;
@@ -43,14 +44,18 @@
             align-items: center;
             text-align: center;
             color: #fff;
+            direction: ltr; /* Force LTR for header */
         }
         
         .names {
+            font-family: 'Playfair Display', serif;
             font-size: 4rem;
             margin-bottom: 10px;
+            font-weight: 700;
         }
         
         .wedding-date {
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             margin-bottom: 30px;
         }
@@ -78,6 +83,7 @@
         }
         
         .countdown-period {
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
             text-transform: uppercase;
         }
@@ -91,6 +97,7 @@
             text-align: center;
             margin-bottom: 50px;
             font-size: 2.5rem;
+            font-weight: 700;
         }
         
         .section-title::after {
@@ -131,8 +138,8 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             right: 0;
+            left: 0;
             height: 6px;
             background: #d7b679;
         }
@@ -207,13 +214,13 @@
         
         .story-timeline {
             position: relative;
-            padding-left: 40px;
+            padding-right: 40px; /* Changed from left to right */
         }
         
         .story-timeline::before {
             content: '';
             position: absolute;
-            left: 0;
+            right: 0; /* Changed from left to right */
             top: 0;
             bottom: 0;
             width: 4px;
@@ -232,7 +239,7 @@
         
         .story-date {
             position: absolute;
-            left: -80px;
+            right: -80px; /* Changed from left to right */
             background: #d7b679;
             color: #fff;
             padding: 10px 15px;
@@ -253,10 +260,10 @@
         .story-content::before {
             content: '';
             position: absolute;
-            left: -20px;
+            right: -20px; /* Changed from left to right */
             top: 20px;
             border: 10px solid transparent;
-            border-right-color: #fff;
+            border-left-color: #fff; /* Changed from right to left */
         }
         
         .story-content h3 {
@@ -284,12 +291,12 @@
         
         @media (max-width: 768px) {
             .story-timeline {
-                padding-left: 30px;
+                padding-right: 30px; /* Changed from left to right */
             }
             
             .story-date {
                 position: relative;
-                left: -40px;
+                right: -60px; /* Changed from left to right */
                 display: inline-block;
                 margin-bottom: 15px;
             }
@@ -361,7 +368,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header with Names and Date -->
+    <!-- Header with Names and Date - In English -->
     <header>
         <div class="container">
             <h1 class="names">Noam & Matan</h1>
@@ -389,7 +396,7 @@
         </div>
     </header>
     
-    <!-- Our Story Section -->
+    <!-- Our Story Section - In Hebrew -->
     <section id="our-story">
         <div class="container">
             <h2 class="section-title">הסיפור שלנו</h2>
@@ -402,9 +409,9 @@
                             <h3>ההיכרות</h3>
                             <p>למדנו באותה כיתה באנגלית בבית הספר. הוזמנו למסיבת יום הולדת של חברה משותפת. נועם הבחינה שמתן מעוניין בה, אבל משום מה הוא לא עשה שום צעד. אז היא החליטה לקחת יוזמה בדרך יצירתית.
                                 נועם ארגנה עם חברה אחרת תכנית קטנה - החברה הייתה אמורה ללכת שלושתם ביחד למסיבה, אבל "במקרה" לא הצליחה להגיע ברגע האחרון. כך נשארנו לבד, וזו הייתה תחילתו של סיפור האהבה שלנו.
-                                </p>
+                            </p>
                             <div class="story-image">
-                                <img src="/api/placeholder/400/300" alt="Coffee shop where we met">
+                                <img src="/api/placeholder/400/300" alt="היכרות שלנו">
                             </div>
                         </div>
                     </div>
@@ -416,9 +423,9 @@
                             <p>אחרי חמש שנים יחד, יצאנו לטיול בדרום אמריקה. כולם חשבו שנחזור עם טבעת, כולל נועם. למרות שהצעת נישואין לא הגיעה אז, הטיול העניק לנו משהו חשוב לא פחות.
 
                                 חווינו יחד הרפתקאות, התמודדנו עם אתגרים, וגילינו צדדים חדשים אחד בשני. המסע המשותף חיזק את הקשר בינינו בדרך שאף טבעת לא הייתה יכולה לעשות, וחזרנו קרובים יותר מאי פעם.
-                                </p>
+                            </p>
                             <div class="story-image">
-                                <img src="/api/placeholder/400/300" alt="Botanical gardens">
+                                <img src="/api/placeholder/400/300" alt="הטיול הגדול">
                             </div>
                         </div>
                     </div>
@@ -426,26 +433,25 @@
                     <div class="story-item">
                         <div class="story-date">פברואר 2023</div>
                         <div class="story-content">
-                            <h3>ההצעה </h3>
+                            <h3>ההצעה</h3>
                             <p>
                                 לאחר שמתן חזר משירותו בעזה, הוא הציע לנועם לנסוע לים המלח לחגוג את יום הולדתו. מה שנועם לא ידעה, הייתה שמאחורי הקלעים התרחשה תכנית גדולה.
                                 
                                 מתן שיתף פעולה עם שיר, אחותה של נועם, כדי לארגן מקום מיוחד. חברים קרובים הגיעו עם סטנדי, הכלב האהוב שלנו, ואפילו רחפן הובא במיוחד לתעד את הרגע.
                                 
                                 וכך, על רקע הנוף המרהיב של ים המלח, עם סטנדי מסתובב בהתרגשות סביבנו, מתן כרע ברך והציע לנועם להפוך את הסיפור המשותף שלנו לסיפור חיים.
-                                
-                                אנחנו מזמינים אתכם להצטרף אלינו לחגוג את הפרק הבא בסיפור שלנו.</p>
+                            </p>
                             <div class="story-image">
-                                <img src="/api/placeholder/400/300" alt="Mountain proposal">
+                                <img src="/api/placeholder/400/300" alt="ההצעה">
                             </div>
                         </div>
                     </div>
                     
                     <div class="story-item">
-                        <div class="story-date">August 2025</div>
+                        <div class="story-date">מאי 2025</div>
                         <div class="story-content">
                             <h3>החתונה</h3>
-                            <p>אנחנו מזמינים אתכם להצטרף אלינו לחגוג את הפרק הבא בסיפור שלנו.</p>
+                            <p>אנחנו מזמינים אתכם להצטרף אלינו לחגוג את הפרק הבא בסיפור שלנו.</p>
                         </div>
                     </div>
                 </div>
@@ -456,35 +462,35 @@
     <!-- Links Section -->
     <section id="links">
         <div class="container">
-            <h2 class="section-title">Quick Links</h2>
+            <h2 class="section-title">קישורים מהירים</h2>
             
             <div class="links-container">
                 <!-- Location Link -->
                 <a href="#" class="link-button" id="location-link">
                     <i class="fas fa-map-marker-alt"></i>
-                    <div class="link-title">Location</div>
-                    <div class="link-desc">Find your way to our special day</div>
+                    <div class="link-title">מיקום</div>
+                    <div class="link-desc">מצאו את הדרך ליום המיוחד שלנו</div>
                 </a>
                 
                 <!-- Spotify Playlist -->
                 <a href="#" class="link-button" id="spotify-link">
                     <i class="fab fa-spotify"></i>
-                    <div class="link-title">Our Playlist</div>
-                    <div class="link-desc">Listen to our favorite songs</div>
+                    <div class="link-title">הפלייליסט שלנו</div>
+                    <div class="link-desc">האזינו לשירים האהובים עלינו</div>
                 </a>
                 
                 <!-- Gifts Link -->
                 <a href="#" class="link-button" id="gifts-link">
                     <i class="fas fa-gift"></i>
-                    <div class="link-title">Gifts</div>
-                    <div class="link-desc">Your presence is enough, but if you insist...</div>
+                    <div class="link-title">מתנות</div>
+                    <div class="link-desc">הנוכחות שלכם מספיקה, אבל אם אתם מתעקשים...</div>
                 </a>
                 
                 <!-- Photo Album -->
                 <a href="#" class="link-button" id="photos-link">
                     <i class="fas fa-camera"></i>
-                    <div class="link-title">Photo Album</div>
-                    <div class="link-desc">Share your moments with us</div>
+                    <div class="link-title">אלבום תמונות</div>
+                    <div class="link-desc">שתפו את הרגעים שלכם איתנו</div>
                 </a>
             </div>
         </div>
@@ -493,54 +499,46 @@
     <!-- Schedule Section -->
     <section id="schedule">
         <div class="container">
-            <h2 class="section-title">Wedding Schedule</h2>
+            <h2 class="section-title">לוח זמנים לחתונה</h2>
             
             <div class="schedule-container">
                 <div class="schedule-item">
-                    <div class="schedule-time">14:00</div>
+                    <div class="schedule-time">11:30</div>
                     <div class="schedule-details">
-                        <div class="schedule-title">Arrival & Welcome</div>
-                        <div class="schedule-desc">Guests arrive and are welcomed with refreshments</div>
+                        <div class="schedule-title">הגעה וקבלת פנים</div>
+                        <div class="schedule-desc">האורחים מגיעים ומתקבלים עם כיבוד קל</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">12:30</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">טקס החופה</div>
+                        <div class="schedule-desc">טקס החופה מתחיל</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">13:30</div>
+                    <div class="schedule-details">
+                        <div class="schedule-title">ארוחה</div>
+                        <div class="schedule-desc">ארוחת צהריים חגיגית</div>
                     </div>
                 </div>
                 
                 <div class="schedule-item">
                     <div class="schedule-time">15:00</div>
                     <div class="schedule-details">
-                        <div class="schedule-title">Ceremony</div>
-                        <div class="schedule-desc">The wedding ceremony begins</div>
+                        <div class="schedule-title">ריקוד ראשון</div>
+                        <div class="schedule-desc">הזוג הטרי עולה לרחבת הריקודים</div>
                     </div>
                 </div>
                 
                 <div class="schedule-item">
-                    <div class="schedule-time">16:00</div>
+                    <div class="schedule-time">15:30</div>
                     <div class="schedule-details">
-                        <div class="schedule-title">Cocktail Hour</div>
-                        <div class="schedule-desc">Enjoy drinks and canapes while we take photos</div>
-                    </div>
-                </div>
-                
-                <div class="schedule-item">
-                    <div class="schedule-time">17:30</div>
-                    <div class="schedule-details">
-                        <div class="schedule-title">Dinner</div>
-                        <div class="schedule-desc">Formal dinner service begins</div>
-                    </div>
-                </div>
-                
-                <div class="schedule-item">
-                    <div class="schedule-time">19:30</div>
-                    <div class="schedule-details">
-                        <div class="schedule-title">First Dance</div>
-                        <div class="schedule-desc">The newlyweds take to the floor</div>
-                    </div>
-                </div>
-                
-                <div class="schedule-item">
-                    <div class="schedule-time">20:00</div>
-                    <div class="schedule-details">
-                        <div class="schedule-title">Party Time!</div>
-                        <div class="schedule-desc">Dancing and celebration into the night</div>
+                        <div class="schedule-title">מסיבה!</div>
+                        <div class="schedule-desc">ריקודים וחגיגות עד השעות הקטנות</div>
                     </div>
                 </div>
             </div>
@@ -550,15 +548,15 @@
     <!-- Dress Code Section -->
     <section id="dress-code">
         <div class="container">
-            <h2 class="section-title">Dress Code</h2>
+            <h2 class="section-title">קוד לבוש</h2>
             
             <div class="dress-code">
-                <h3 class="dress-code-title">Semi-Formal Elegance</h3>
+                <h3 class="dress-code-title">אלגנטי</h3>
                 <p class="dress-code-desc">
-                    We invite you to dress in semi-formal attire for our special day. 
-                    For men, this means a suit or blazer with dress pants. For women, 
-                    a cocktail dress or elegant jumpsuit would be perfect. 
-                    We recommend avoiding white (reserved for the bride) and very casual attire.
+                    אנו מזמינים אתכם להתלבש באופן אלגנטי ליום המיוחד שלנו.
+                    לגברים, זה אומר חליפה או ז'קט עם מכנסי אריג. לנשים,
+                    שמלת קוקטייל או חליפת מכנסיים אלגנטית תהיה מושלמת.
+                    אנו ממליצים להימנע מלבן (שמור לכלה) ומלבוש קז'ואל מדי.
                 </p>
             </div>
         </div>
@@ -567,8 +565,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="footer-text">We can't wait to celebrate with you!</p>
-            <p>Noam & Matan</p>
+            <p class="footer-text">אנחנו לא יכולים לחכות לחגוג איתכם!</p>
+            <p>נועם ומתן</p>
         </div>
     </footer>
 
