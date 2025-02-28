@@ -214,7 +214,8 @@
         
         .story-timeline {
             position: relative;
-            padding-right: 40px; /* Changed from left to right */
+            padding-right: 100px; /* Increased padding to make room for date */
+            margin-right: 20px; /* Added margin for better spacing */
         }
         
         .story-timeline::before {
@@ -239,7 +240,7 @@
         
         .story-date {
             position: absolute;
-            right: -80px; /* Changed from left to right */
+            right: -110px; /* Increased space to show full date */
             background: #d7b679;
             color: #fff;
             padding: 10px 15px;
@@ -247,6 +248,9 @@
             font-weight: 600;
             font-size: 0.9rem;
             white-space: nowrap;
+            text-align: center;
+            width: auto; /* Allow width to adjust to content */
+            min-width: 90px; /* Ensure minimum width */
         }
         
         .story-content {
@@ -292,13 +296,15 @@
         @media (max-width: 768px) {
             .story-timeline {
                 padding-right: 30px; /* Changed from left to right */
+                margin-right: 0; /* Reset margin on mobile */
             }
             
             .story-date {
                 position: relative;
-                right: -60px; /* Changed from left to right */
+                right: -40px; /* Changed from left to right */
                 display: inline-block;
                 margin-bottom: 15px;
+                width: auto; /* Allow width to fit content on mobile */
             }
         }
         
