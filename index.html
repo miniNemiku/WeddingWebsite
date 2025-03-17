@@ -67,7 +67,7 @@
             margin-bottom: 30px;
         }
         
-        /* Countdown Timer - Improved for mobile */
+        /* Countdown Timer - Improved for mobile with fixed sizes */
         .countdown {
             display: flex;
             justify-content: center;
@@ -77,11 +77,16 @@
         
         .countdown-box {
             background: rgba(255, 255, 255, 0.85);
-            padding: 15px 20px;
+            padding: 15px 0;
             margin: 0 10px;
-            min-width: 80px;
+            width: 90px; /* Fixed width */
+            height: 90px; /* Fixed height */
             border-radius: 5px;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .countdown-amount {
@@ -332,17 +337,16 @@
             
             /* Countdown Timer scaling for mobile */
             .countdown {
-                /* Scale down the entire countdown container */
                 transform: scale(0.9);
                 width: 100%;
                 margin: 20px 0;
             }
             
             .countdown-box {
-                /* Reduce padding and margin for mobile */
-                padding: 10px;
                 margin: 0 5px;
-                min-width: 60px;
+                width: 70px; /* Smaller but fixed width on mobile */
+                height: 70px; /* Smaller but fixed height on mobile */
+                padding: 5px 0;
             }
             
             .countdown-amount {
@@ -357,15 +361,15 @@
         /* Extra small devices */
         @media (max-width: 480px) {
             .countdown {
-                transform: scale(0.8);
-                width: 100%;
+                transform: scale(0.85);
                 margin: 10px 0;
             }
             
             .countdown-box {
-                padding: 8px;
+                width: 65px; /* Even smaller fixed width */
+                height: 65px; /* Even smaller fixed height */
                 margin: 0 3px;
-                min-width: 50px;
+                padding: 2px 0;
             }
             
             .countdown-amount {
