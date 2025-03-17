@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noam & Matan - Wedding</title>
     <style>
-        /* Google Fonts - Adding Hebrew fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        /* Google Fonts - Adding Hebrew fonts with Nikud support */
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
         
         /* Base Styles */
         * {
@@ -24,7 +24,7 @@
         }
         
         h1, h2, h3 {
-            font-family: 'Heebo', 'Playfair Display', serif;
+            font-family: 'Frank Ruhl Libre', 'Heebo', 'Playfair Display', serif;
             color: #3a3a3a;
         }
         
@@ -61,11 +61,12 @@
             margin-bottom: 30px;
         }
         
-        /* Countdown Timer */
+        /* Countdown Timer - Improved for mobile */
         .countdown {
             display: flex;
             justify-content: center;
             margin: 30px 0;
+            flex-wrap: nowrap; /* Prevent wrapping by default */
         }
         
         .countdown-box {
@@ -94,11 +95,17 @@
             padding: 80px 0;
         }
         
+        /* Reducing space between sections */
+        #dress-code {
+            padding-top: 40px; /* Reduced from 80px */
+        }
+        
         .section-title {
             text-align: center;
             margin-bottom: 50px;
             font-size: 2.5rem;
             font-weight: 700;
+            font-family: 'Frank Ruhl Libre', 'Heebo', serif;
         }
         
         .section-title::after {
@@ -160,6 +167,7 @@
             font-weight: 600;
             font-size: 1.2rem;
             margin-bottom: 5px;
+            font-family: 'Frank Ruhl Libre', 'Heebo', sans-serif;
         }
         
         .link-desc {
@@ -199,12 +207,17 @@
         .schedule-details {
             padding: 20px;
             flex-grow: 1;
+            text-align: center; /* Center the text */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .schedule-title {
             font-weight: 600;
             margin-bottom: 5px;
             font-size: 1.2rem;
+            font-family: 'Frank Ruhl Libre', 'Heebo', sans-serif;
         }
         
         /* Our Story Section */
@@ -252,6 +265,7 @@
             text-align: center;
             width: auto; /* Allow width to adjust to content */
             min-width: 90px; /* Ensure minimum width */
+            font-family: 'Frank Ruhl Libre', 'Heebo', sans-serif;
         }
         
         .story-content {
@@ -275,6 +289,7 @@
             color: #d7b679;
             margin-bottom: 15px;
             font-size: 1.5rem;
+            font-family: 'Frank Ruhl Libre', 'Heebo', serif;
         }
         
         .story-content p {
@@ -307,6 +322,48 @@
                 margin-bottom: 15px;
                 width: auto; /* Allow width to fit content on mobile */
             }
+            
+            /* Countdown Timer scaling for mobile */
+            .countdown {
+                /* Scale down the entire countdown container */
+                transform: scale(0.9);
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .countdown-box {
+                /* Reduce padding and margin for mobile */
+                padding: 10px;
+                margin: 0 5px;
+                min-width: 60px;
+            }
+            
+            .countdown-amount {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-period {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .countdown {
+                transform: scale(0.8);
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .countdown-box {
+                padding: 8px;
+                margin: 0 3px;
+                min-width: 50px;
+            }
+            
+            .countdown-amount {
+                font-size: 1.5rem;
+            }
         }
         
         /* Dress Code Section */
@@ -324,6 +381,7 @@
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: #d7b679;
+            font-family: 'Frank Ruhl Libre', 'Heebo', serif;
         }
         
         .dress-code-desc {
@@ -341,6 +399,7 @@
         
         .footer-text {
             margin-bottom: 15px;
+            font-family: 'Frank Ruhl Libre', 'Heebo', sans-serif;
         }
         
         /* Responsive Design */
@@ -351,14 +410,6 @@
             
             .wedding-date {
                 font-size: 1.5rem;
-            }
-            
-            .countdown {
-                flex-wrap: wrap;
-            }
-            
-            .countdown-box {
-                margin: 5px;
             }
             
             .schedule-item {
@@ -415,7 +466,7 @@
                         <div class="story-content">
                             <h3>ההיכרות</h3>
                             <p>
-                                למדנו ביחד בשכבה ובכיתה י׳ למדנו באותה הקבצה בשיעורי אנגלית בבית הספר.  לאחר כמה חודשים הוזמנו למסיבת יום הולדת של חברה משותפת. נועם הבחינה שמתן מעוניין בה, אבל משום מה הוא לא עשה שום צעד. אז היא החליטה לקחת יוזמה בדרך יצירתית. נועם ארגנה עם חברה אחרת תכנית קטנה - החברה סידרה  שלושתם ביחד ילכו למסיבה, אבל "במקרה" לא הצליחה להגיע ברגע האחרון. כך אנחנו נשארו לבד, בסוף לא נכנסו למסיבה והעברנו את כל הערב בשיחה ויום למחרת כבר קבענו ״דייט״
+                                למדנו ביחד בשכבה ובכיתה י׳ למדנו באותה הקבצה בשיעורי אנגלית בבית הספר.  לאחר כמה חודשים הוזמנו למסיבת יום הולדת של חברה משותפת. נועם הבחינה שמתן מעוניין בה, אבל משום מה הוא לא עשה שום צעד. אז היא החליטה לקחת יוזמה בדרך יצירתית. נועם ארגנה עם חברה אחרת תכנית קטנה - החברה סידרה  שלושתם ביחד ילכו למסיבה, אבל "במקרה" לא הצליחה להגיע ברגע האחרון. כך אנחנו נשארו לבד, בסוף לא נכנסו למסיבה והעברנו את כל הערב בשיחה ויום למחרת כבר קבענו ״דייט״
                             </p>
                             <div class="story-image">
                                 <img src="הכרות.png" alt="היכרות שלנו">
@@ -442,7 +493,7 @@
                         <div class="story-content">
                             <h3>ההצעה</h3>
                             <p>
-                                מתן הציע לנועם לנסוע לים המלח לחגוג את יום הולדתו. מה שנועם לא ידעה, היה שמאחורי הקלעים התרחשה תכנית גדולה. מתן שיתף פעולה עם שיר, אחותה של נועם, כדי לארגן מקום מיוחד. חברים קרובים הגיעו לעזור עם ההצעה, ואפילו הביאו רחפן במיוחד לתעד את הרגע. וכך, על רקע הנוף של ים המלח, עם סטנדי מסתובב בהתרגשות סביבנו, מתן כרע ברך והציע להפוך את הסיפורים שלהם לסיפור אחד משותף.
+                                מתן הציע לנועם לנסוע לים המלח לחגוג את יום הולדתו. מה שנועם לא ידעה, היה שמאחורי הקלעים התרחשה תכנית גדולה. מתן שיתף פעולה עם שיר, אחותה של נועם, כדי לארגן מקום מיוחד. חברים קרובים הגיעו לעזור עם ההצעה, ואפילו הביאו רחפן במיוחד לתעד את הרגע. וכך, על רקע הנוף של ים המלח, עם סטנדי מסתובב בהתרגשות סביבנו, מתן כרע ברך והציע להפוך את הסיפורים שלהם לסיפור אחד משותף.
                             </p>
                             <div class="story-image">
                                 <img src="ההצעה.png" alt="ההצעה">
