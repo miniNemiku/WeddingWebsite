@@ -135,14 +135,16 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        
+
         .link-button {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 220px;
+            width: 200px;
             height: 220px;
             background: #fff;
             border-radius: 10px;
@@ -152,41 +154,49 @@
             color: #333;
             position: relative;
             overflow: hidden;
+            margin-bottom: 10px;
         }
-        
-        .link-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 6px;
-            background: #d7b679;
+
+        /* Responsive grid layout for different screen sizes */
+        @media (min-width: 992px) {
+            .links-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
         }
-        
-        .link-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+        @media (min-width: 1200px) {
+            .links-container {
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
-        
-        .link-button i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #d7b679;
+
+        /* Adjust link description sizing for better fit */
+        .link-desc {
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0 10px;
+            color: #777;
+            height: 3.6em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            line-clamp: 3;
         }
-        
+
+        /* Make sure longer titles still fit nicely */
         .link-title {
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 5px;
             font-family: 'Heebo', sans-serif;
-        }
-        
-        .link-desc {
-            font-size: 0.9rem;
+            height: 2.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 0 15px;
-            color: #777;
         }
         
         /* Schedule Section */
@@ -626,7 +636,7 @@
     <script>
         // Replace these with your actual links
         document.getElementById('location-link').href = "https://maps.app.goo.gl/Jy1KQAMYBn7EULcL8"; // Google Maps link
-        document.getElementById('transport-link').href = "https://forms.gle/exampleTransportForm"; // Google Form for transportation
+        document.getElementById('transport-link').href = "https://docs.google.com/forms/d/1l08ihJyy3RAb_GnpBNYLMm_Vif7Z8i2vJX7O-wez2W0/edit?usp=drivesdk "; // Google Form for transportation
         document.getElementById('spotify-link').href = "https://open.spotify.com/playlist/54dBUhy0JQznuJvExyA0Wy?si=lyTyArRgRXO8GU2yjr_37w&pi=54EHAjAFScqXq"; // Spotify playlist
         document.getElementById('gifts-link').href = "https://payboxapp.page.link/VuLqB7jiWfh81iNx6"; // Gifts/payment link
         document.getElementById('photos-link').href = "https://photos.app.goo.gl/MWfKMft3Rb1yUaez5"; // Google Photos
