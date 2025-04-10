@@ -439,30 +439,22 @@
             }
 
             .menu-card {
-                background: #fff;
+                background-color: #fff;
                 border-radius: 5px;
                 box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
                 padding: 40px;
-                text-align: center;
                 position: relative;
-                overflow: hidden;
-                background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('/api/placeholder/800/800');
-                background-size: cover;
-                background-position: center;
+                text-align: center;
+                border-top: 6px solid #d7b679;
             }
 
-            .menu-card::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                left: 0;
-                height: 6px;
-                background: #d7b679;
+            .menu-header {
+                margin-bottom: 30px;
+                text-align: center;
             }
 
             .menu-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
                 margin-bottom: 10px;
                 color: #d7b679;
                 font-family: 'David Libre', 'Heebo', serif;
@@ -471,38 +463,43 @@
 
             .menu-desc {
                 font-size: 1.1rem;
+                color: #555;
+            }
+
+            .menu-content {
+                margin: 0 auto;
+                max-width: 600px;
+            }
+
+            .menu-section {
                 margin-bottom: 30px;
-                line-height: 1.5;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(215, 182, 121, 0.3);
             }
 
-            .menu-category {
-                margin-bottom: 30px;
-                position: relative;
-                padding: 20px 0;
+            .menu-section:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
             }
 
-            .menu-category::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 60px;
-                height: 2px;
-                background: #d7b679;
-            }
-
-            .menu-category:last-of-type::after {
-                display: none;
-            }
-
-            .category-title {
+            .menu-section-title {
                 font-family: 'Heebo', serif;
                 color: #d7b679;
                 font-size: 1.5rem;
                 margin-bottom: 15px;
+                font-weight: 600;
                 position: relative;
                 display: inline-block;
+            }
+
+            .menu-section-title::after {
+                content: '';
+                display: block;
+                width: 50px;
+                height: 2px;
+                background-color: #d7b679;
+                margin: 8px auto 0;
             }
 
             .menu-items {
@@ -513,9 +510,11 @@
             }
 
             .menu-items li {
-                margin-bottom: 12px;
-                font-size: 1.05rem;
+                margin-bottom: 15px;
+                font-size: 1.1rem;
                 line-height: 1.5;
+                position: relative;
+                padding: 0 10px;
             }
 
             .menu-items li:last-child {
@@ -524,96 +523,66 @@
 
             .menu-footer {
                 margin-top: 30px;
-                padding-top: 20px;
-                border-top: 1px solid rgba(215, 182, 121, 0.3);
+                text-align: center;
             }
 
             .menu-logo {
-                width: 70px;
-                height: 70px;
-                margin-bottom: 10px;
-                opacity: 0.8;
-            }
-
-            /* Floral decorations */
-            .floral-decoration {
-                position: absolute;
                 width: 120px;
-                height: 120px;
-                opacity: 0.15;
-                z-index: 0;
-                pointer-events: none;
+                height: auto;
+                opacity: 0.9;
             }
 
-            .floral-top-right {
-                top: 0;
-                right: 0;
-                transform: rotate(45deg);
+            /* Optional text-based logo */
+            .menu-logo-text {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Playfair Display', serif;
+                color: #d7b679;
             }
 
-            .floral-bottom-left {
-                bottom: 0;
-                left: 0;
-                transform: rotate(-135deg);
+            .menu-logo-text span {
+                margin: 0 5px;
+                font-size: 1.8rem;
+                font-weight: 700;
             }
 
-            /* To create the floral effect without images */
-            .menu-card::before,
-            .menu-card::after {
-                content: '';
-                position: absolute;
-                width: 150px;
-                height: 150px;
-                opacity: 0.1;
-                z-index: 0;
+            .menu-logo-text span:nth-child(2) {
+                font-size: 1.2rem;
+                margin-top: -5px;
             }
 
-            .menu-card::before {
-                top: -30px;
-                right: -30px;
-                background: radial-gradient(circle, #d7b679 5%, transparent 80%);
-            }
-
-            .menu-card::after {
-                bottom: -30px;
-                left: -30px;
-                background: radial-gradient(circle, #d7b679 5%, transparent 80%);
-            }
-
-            /* Add a decorative border to mimic the floral design */
-            .menu-border {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                bottom: 10px;
-                left: 10px;
-                border: 1px solid rgba(215, 182, 121, 0.3);
-                border-radius: 3px;
-                pointer-events: none;
-                z-index: 0;
-            }
-
-            /* Responsive Design */
-            @media (max-width: 768px) {
+            /* Responsive design */
+            @media screen and (min-width: 768px) {
                 .menu-card {
-                    padding: 30px 20px;
+                    padding: 50px;
+                }
+                
+                .menu-items li {
+                    padding: 0 20px;
+                }
+                
+                .menu-section {
+                    padding-bottom: 30px;
+                    margin-bottom: 40px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .menu-card {
+                    padding: 25px 20px;
                 }
                 
                 .menu-title {
-                    font-size: 1.6rem;
+                    font-size: 1.7rem;
                 }
                 
-                .category-title {
+                .menu-section-title {
                     font-size: 1.3rem;
                 }
                 
                 .menu-items li {
                     font-size: 1rem;
-                }
-                
-                .floral-decoration {
-                    width: 80px;
-                    height: 80px;
                 }
             }
         }
@@ -809,37 +778,47 @@
             
             <div class="menu-container">
                 <div class="menu-card">
-                    <h3 class="menu-title">התפריט בסגנון מסעדה</h3>
-                    <p class="menu-desc">מוזמנים להנות ולהזמין כמה מנות שתרצו</p>
-                    
-                    <div class="menu-category">
-                        <h4 class="category-title">פתיחה</h4>
-                        <ul class="menu-items">
-                            <li>זר של לחמים, סלט כרוב אסייתי עם חזה עוף</li>
-                            <li>קרפצ'יו סלקים, סלט שורשים</li>
-                            <li>קרפציו לב חציל, סלט קפרזה, סלט שוק</li>
-                        </ul>
+                    <div class="menu-header">
+                        <h3 class="menu-title">התפריט בסגנון מסעדה</h3>
+                        <p class="menu-desc">מוזמנים להנות ולהזמין כמה מנות שתרצו</p>
                     </div>
                     
-                    <div class="menu-category">
-                        <h4 class="category-title">ביניים</h4>
-                        <ul class="menu-items">
-                            <li>פטה כבד, בשר צלעות על פולנטה</li>
-                            <li>קרפציו פילה בקר, קרפציו סלמון</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="menu-category">
-                        <h4 class="category-title">עיקרית</h4>
-                        <ul class="menu-items">
-                            <li>פרגית, פילה דג, אסאדו עגל</li>
-                            <li>מנה טבעונית - טורטליני קרם פטריות וכמהין</li>
-                        </ul>
+                    <div class="menu-content">
+                        <div class="menu-section">
+                            <h4 class="menu-section-title">פתיחה</h4>
+                            <ul class="menu-items">
+                                <li>זר של לחמים, סלט כרוב אסייתי עם חזה עוף</li>
+                                <li>קרפצ'יו סלקים, סלט שורשים</li>
+                                <li>קרפציו לב חציל, סלט קפרזה, סלט שוק</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="menu-section">
+                            <h4 class="menu-section-title">ביניים</h4>
+                            <ul class="menu-items">
+                                <li>פטה כבד, בשר צלעות על פולנטה</li>
+                                <li>קרפציו פילה בקר, קרפציו סלמון</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="menu-section">
+                            <h4 class="menu-section-title">עיקרית</h4>
+                            <ul class="menu-items">
+                                <li>פרגית, פילה דג, אסאדו עגל</li>
+                                <li>מנה טבעונית - טורטליני קרם פטריות וכמהין</li>
+                            </ul>
+                        </div>
                     </div>
                     
                     <div class="menu-footer">
-                        <img src="wedding-logo.png" alt="Wedding logo" class="menu-logo">
-                        <p>נועם ומתן</p>
+                        <img src="nm-logo.png" alt="Noam & Matan" class="menu-logo">
+                        <!-- If you don't have a logo image, you can use this instead:
+                        <div class="menu-logo-text">
+                            <span>N</span>
+                            <span>&</span>
+                            <span>M</span>
+                        </div>
+                        -->
                     </div>
                 </div>
             </div>
