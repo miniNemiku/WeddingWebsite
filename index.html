@@ -432,26 +432,189 @@
                 min-width: auto;
             }
 
-            /* Menu Image Section Styles */
-            .menu-image-container {
-                max-width: 600px;
+            /* Menu Section Styles */
+            .menu-container {
+                max-width: 800px;
                 margin: 0 auto;
             }
 
-            .menu-image-card {
+            .menu-card {
                 background: #fff;
                 border-radius: 5px;
                 box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-                padding: 20px;
+                padding: 40px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+                background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('/api/placeholder/800/800');
+                background-size: cover;
+                background-position: center;
+            }
+
+            .menu-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                height: 6px;
+                background: #d7b679;
+            }
+
+            .menu-title {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+                color: #d7b679;
+                font-family: 'David Libre', 'Heebo', serif;
+                font-weight: 700;
+            }
+
+            .menu-desc {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+                line-height: 1.5;
+            }
+
+            .menu-category {
+                margin-bottom: 30px;
+                position: relative;
+                padding: 20px 0;
+            }
+
+            .menu-category::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 2px;
+                background: #d7b679;
+            }
+
+            .menu-category:last-of-type::after {
+                display: none;
+            }
+
+            .category-title {
+                font-family: 'Heebo', serif;
+                color: #d7b679;
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                position: relative;
+                display: inline-block;
+            }
+
+            .menu-items {
+                list-style: none;
+                padding: 0;
+                margin: 0;
                 text-align: center;
             }
 
-            .menu-img {
-                max-width: 100%;
-                height: auto;
-                display: block;
-                margin: 0 auto;
+            .menu-items li {
+                margin-bottom: 12px;
+                font-size: 1.05rem;
+                line-height: 1.5;
+            }
+
+            .menu-items li:last-child {
+                margin-bottom: 0;
+            }
+
+            .menu-footer {
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid rgba(215, 182, 121, 0.3);
+            }
+
+            .menu-logo {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 10px;
+                opacity: 0.8;
+            }
+
+            /* Floral decorations */
+            .floral-decoration {
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                opacity: 0.15;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            .floral-top-right {
+                top: 0;
+                right: 0;
+                transform: rotate(45deg);
+            }
+
+            .floral-bottom-left {
+                bottom: 0;
+                left: 0;
+                transform: rotate(-135deg);
+            }
+
+            /* To create the floral effect without images */
+            .menu-card::before,
+            .menu-card::after {
+                content: '';
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                opacity: 0.1;
+                z-index: 0;
+            }
+
+            .menu-card::before {
+                top: -30px;
+                right: -30px;
+                background: radial-gradient(circle, #d7b679 5%, transparent 80%);
+            }
+
+            .menu-card::after {
+                bottom: -30px;
+                left: -30px;
+                background: radial-gradient(circle, #d7b679 5%, transparent 80%);
+            }
+
+            /* Add a decorative border to mimic the floral design */
+            .menu-border {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                bottom: 10px;
+                left: 10px;
+                border: 1px solid rgba(215, 182, 121, 0.3);
                 border-radius: 3px;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .menu-card {
+                    padding: 30px 20px;
+                }
+                
+                .menu-title {
+                    font-size: 1.6rem;
+                }
+                
+                .category-title {
+                    font-size: 1.3rem;
+                }
+                
+                .menu-items li {
+                    font-size: 1rem;
+                }
+                
+                .floral-decoration {
+                    width: 80px;
+                    height: 80px;
+                }
             }
         }
     </style>
@@ -644,22 +807,44 @@
         <div class="container">
             <h2 class="section-title">תפריט</h2>
             
-            <div class="menu-image-container">
-                <div class="menu-image-card">
-                    <img src="menu.jpg" alt="תפריט החתונה" class="menu-img">
+            <div class="menu-container">
+                <div class="menu-card">
+                    <h3 class="menu-title">התפריט בסגנון מסעדה</h3>
+                    <p class="menu-desc">מוזמנים להנות ולהזמין כמה מנות שתרצו</p>
+                    
+                    <div class="menu-category">
+                        <h4 class="category-title">פתיחה</h4>
+                        <ul class="menu-items">
+                            <li>זר של לחמים, סלט כרוב אסייתי עם חזה עוף</li>
+                            <li>קרפצ'יו סלקים, סלט שורשים</li>
+                            <li>קרפציו לב חציל, סלט קפרזה, סלט שוק</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-category">
+                        <h4 class="category-title">ביניים</h4>
+                        <ul class="menu-items">
+                            <li>פטה כבד, בשר צלעות על פולנטה</li>
+                            <li>קרפציו פילה בקר, קרפציו סלמון</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-category">
+                        <h4 class="category-title">עיקרית</h4>
+                        <ul class="menu-items">
+                            <li>פרגית, פילה דג, אסאדו עגל</li>
+                            <li>מנה טבעונית - טורטליני קרם פטריות וכמהין</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-footer">
+                        <img src="wedding-logo.png" alt="Wedding logo" class="menu-logo">
+                        <p>נועם ומתן</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-        
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p class="footer-text">אנחנו לא יכולים לחכות לחגוג איתכם!</p>
-            <p>נועם ומתן</p>
-        </div>
-    </footer>
-
     <!-- JavaScript for Countdown Timer and Link Functionality -->
     <script>
         // Replace these with your actual links
