@@ -431,6 +431,28 @@
                 padding: 10px;
                 min-width: auto;
             }
+
+            /* Menu Image Section Styles */
+            .menu-image-container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .menu-image-card {
+                background: #fff;
+                border-radius: 5px;
+                box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                text-align: center;
+            }
+
+            .menu-img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+                border-radius: 3px;
+            }
         }
     </style>
     <!-- Font Awesome for icons -->
@@ -515,6 +537,9 @@
                         <div class="story-content">
                             <h3>החתונה</h3>
                             <p>ועכשיו אנחנו מזמינים אתכם להצטרף אלינו לחגוג ולכתוב את הפרק הבא בסיפור שלנו.</p>
+                            <div class="story-image">
+                                <img src="רודוס.jpg" alt="רודוס">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -613,7 +638,20 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <h2 class="section-title">תפריט</h2>
+            
+            <div class="menu-image-container">
+                <div class="menu-image-card">
+                    <img src="menu.jpg" alt="תפריט החתונה" class="menu-img">
+                </div>
+            </div>
+        </div>
+    </section>
+        
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -625,7 +663,7 @@
     <!-- JavaScript for Countdown Timer and Link Functionality -->
     <script>
         // Replace these with your actual links
-        document.getElementById('location-link').href = "https://maps.app.goo.gl/Jy1KQAMYBn7EULcL8"; // Google Maps link
+        document.getElementById('location-link').href = "https://www.waze.com/live-map/directions?to=ll.32.193739%2C34.881871"; // Waze link
         document.getElementById('transport-link').href = "https://docs.google.com/forms/d/1l08ihJyy3RAb_GnpBNYLMm_Vif7Z8i2vJX7O-wez2W0/edit?usp=drivesdk "; // Google Form for transportation
         document.getElementById('spotify-link').href = "https://open.spotify.com/playlist/54dBUhy0JQznuJvExyA0Wy?si=lyTyArRgRXO8GU2yjr_37w&pi=54EHAjAFScqXq"; // Spotify playlist
         document.getElementById('gifts-link').href = "https://payboxapp.page.link/VuLqB7jiWfh81iNx6"; // Gifts/payment link
